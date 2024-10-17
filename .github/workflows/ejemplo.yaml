@@ -13,4 +13,7 @@ jobs:
     steps:
       - name: Revisar archivos
         run: ls
-        
+      - name: Revisar checkout 
+        uses: actions/checkout@v4
+      - name: Revisar archivos despues 
+        run: ls
