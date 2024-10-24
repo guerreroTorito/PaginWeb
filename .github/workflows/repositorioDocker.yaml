@@ -20,4 +20,5 @@ jobs:
         run: |
           docker build -t pagina-prueba .
       - name: push Docker file to docker hub 
-        run: docker tag pagina-prueba ${{secrets.DOCKERHUB_USERNAME}}/pagina-prueba:latest docker push ${{secrets.DOCKERHUB_TOKEN}}/pagina-prueba:latest
+        run: |
+          docker tag pagina-prueba ${{secrets.DOCKERHUB_USERNAME}}/pagina-prueba:latest docker push ${{secrets.DOCKERHUB_TOKEN}}/pagina-prueba:latest
