@@ -1,7 +1,7 @@
 name: Deploy en AWS Lightsail
 on:
   push:
-    branches: ['main']
+    branches: ['master']
 
 jobs:
   deploy:
