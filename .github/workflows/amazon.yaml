@@ -1,0 +1,28 @@
+name: Deploy en AWS Lightsail
+
+on: 
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{secrets.SSH_PRIVATE_KEY}}
+
+      - name: Despliegue en AWS Lightsail
+        env:
+          REPO_URL: "https://github.com/guerreroTorito/PaginWeb.git"
+        run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@54.164.62.138 << 'EOF'
+            cd /var/www/html
+            sudo rm -rf *
+            git clone $REPO_URL .
+            sudo chown -R www-data:www-data /var/www/html
+          EOF
