@@ -22,7 +22,7 @@ jobs:
           # sudo rm -rf *
           if[ -d ".git" ]; then
               # Si es un repositorio git, hacer pull
-              git pull origin main
+              git pull origin master
             else
               # Si no existe, clonar el repositorio
               git clone https://github.com/guerreroTorito/PaginWeb.git .
