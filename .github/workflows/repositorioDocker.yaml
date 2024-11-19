@@ -19,11 +19,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t pagina-prueba .
-
-      - name: Tag Docker Image
-        run: |
-          docker tag pagina-prueba ${{ secrets.DOCKERHUB_USERNAME }}/pagina-prueba:latest
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/pagina-prueba .
 
       - name: Push Docker Image
         run: |
